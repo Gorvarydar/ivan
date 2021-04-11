@@ -66,7 +66,7 @@ rememberMyFilms();
 
 
 function detectPersonalLevel() {
-  console.log(personalMovieDB);
+  // console.log(personalMovieDB);
   if (numberOfFilms < 10) {
     console.log('Просмотрено очень мало фильмов!');
   }
@@ -89,17 +89,8 @@ showMyDB(personalMovieDB.privat);
 
 function writeYourGenres() {
   for(i = 1; i < 4; i++) {
-   const answer = prompt(`Ваш любимый жанр под номером № ${i}`)
-    personalMovieDB.genres[i - 1] = answer;
-  }
+    personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером № ${i}`);
 }
 writeYourGenres();
 
-
-
-
-
-
-
-
-
+}
