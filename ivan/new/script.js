@@ -65,3 +65,15 @@ else if(numberOfFilms > 30)
 
 
 
+function set(a ,b) {
+  return (a+b);
+};
+ console.log(set(2, 4));
+ console.log(set(4, 4));
+ console.log(set(2, 6));
+ console.log(set(2, 23));
+ function name() {}// function declaration может использоваться до объявления как var
+
+ const f = function() {}; //function expression может использоваться только после объявления
+const fun = (a, b) =>{a + b};//стрелочная функция не имеет своего конекста
+ 
