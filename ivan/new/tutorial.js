@@ -48,19 +48,19 @@ function done() {
 
 learnJS('fffff', done);
 
-const options = {
-    name: "test",
-    widht: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    }
-};
+// const options = {
+//     name: "test",
+//     widht: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     }
+// };
 
-const {border, bg} = options.colors; //* деструктуризация объекта
-console.log(border);
-console.log(bg);
+// const { border, bg } = options.colors; //* деструктуризация объекта
+// console.log(border);
+// console.log(bg);
 // console.log(options.colors.border)//!обращение к вложенному в ключ объекту.
 
 // let counter = 0;
@@ -86,22 +86,53 @@ console.log(Object.keys(options).length);//*свойство length не при�
 
 const rt = {
     age: 77,
-    height:144,
+    height: 144,
     widht: 57,
-    
-    makeTest: function() {//!создание метода объекта , создаётся внутри объекта!
+
+    makeTest: function () {//!создание метода объекта , создаётся внутри объекта!
         console.log("test");
     }
-    
+
 }
 rt.makeTest();
 
 console.log(Object.keys(rt));
 console.log(Object.keys(rt).length);
 
-for(let i in rt) {
+for (let i in rt) {
     console.log(`you will got ${rt[i]}`)
 }
 
 
 rt.makeTest();
+
+///!МАССИВЫ
+
+const arr = [1, 2, 3, 6, 8];
+
+// arr[99] = 100;//* недочёт свойства
+// console.log(arr.length);
+// console.log(arr);
+
+
+// arr.pop(); //* удаляет последний элемент массива
+// console.log(arr);
+
+// arr.push(10);//* добавляет последний элемент массива
+// console.log(arr);
+
+// for(i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);//* счётчик перебирает каждый элемент массива
+// }
+
+// for(i of arr) {      //*метод который делает тоже самаое что и счётчик(массив ,псевдомассивы, строка, map/set)
+//     console.log(i);  
+// }
+
+// arr.forEach(function (element, i, arr) {
+//     console.log(`${i}: ${element} внутри массива ${arr}`);
+// });
+const str = prompt('','');
+const far = str.split(" ,");//* преобразование строки в массив
+far.sort();
+console.log(far.join('.'));//* преобразование массивс в строку через .
