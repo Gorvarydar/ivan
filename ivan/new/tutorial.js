@@ -189,7 +189,7 @@ const numbers = {
 // const numbersCopy = copy(numbers);
 
 // numbers.a = 23;
-// numbersCopy.c.x = 88;        //* при поверхностном копиовании вложенные объекты сохраняют ссылочные значения
+// numbersCopy.c.x = 88;        //* при поверхностном копировании вложенные объекты сохраняют ссылочные значения
 // console.log(numbers);
 // console.log(numbersCopy);
 

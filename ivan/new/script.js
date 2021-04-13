@@ -7,11 +7,13 @@ function start() {
   }
 }
 start();
+
 const personalMovieDB = {
   movies: {},
   actors: {},
   genres: [],
-  privat: false
+  privat: false,
+
 
 };
 // let i = 0;
@@ -92,5 +94,4 @@ function writeYourGenres() {
     personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером № ${i}`);
 }
 writeYourGenres();
-
 }
