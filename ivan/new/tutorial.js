@@ -197,13 +197,15 @@ const add = {
     r: 4,
     f: 3
 };
+add.r = 44;
+console.log(add);
+
 console.log(Object.assign(numbers, add));//* соединение объектов через Object.assign
 
 const copyObj = Object.assign({}, add);//* копирование объектов через Object.assign
 console.log(copyObj);
 
-add.r = 44;
-console.log(add);
+
 console.log(copyObj);
 
 const oldArr = ['a', 'b', 'c'];

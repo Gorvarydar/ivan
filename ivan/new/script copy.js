@@ -1,25 +1,21 @@
-let numberOfFilms = {
-  start: function () {
-    numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "");
-    while (numberOfFilms = null || numberOfFilms == '' || isNaN(numberOfFilms)) {
-      numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "");
-    }
-   
-    }
-};
-
-numberOfFilms.start();
 
 const personalMovieDB = {
+  count: 0,
   movies: {},
   actors: {},
   genres: [],
   privat: false,
+  start: function () {
+    personalMovieDB.count = prompt("Сколько фильмов вы уже посмотрели?", "");
+    while (personalMovieDB.count == null || personalMovieDB.count == '' || isNaN(personalMovieDB.count)) {
+      personalMovieDB.count = prompt("Сколько фильмов вы уже посмотрели?", "");
+    }
+  },
   writeYourGenres: function () {
     for (i = 1; i < 4; i++) {
       personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером № ${i}`);
 
-      while (personalMovieDB.genres == "" || personalMovieDB.genres == null) {
+      while (personalMovieDB.genres == "" || personalMovieDB.genres == null || personalMovieDB.genres == !isNaN) {
         personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером № ${i}`);
       }
     };
@@ -46,16 +42,17 @@ const personalMovieDB = {
     }
   },
   detectPersonalLevel: function () {
-     console.log(personalMovieDB);
-    if (numberOfFilms < 10) {
-      console.log('Просмотрено очень мало фильмов!');
+    //  console.log(personalMovieDB);
+    if (personalMovieDB.count < 10) {
+      console.log("Просмотрено очень мало фильмов!");
     }
-    else if (10 <= numberOfFilms && numberOfFilms <= 30) {
+    else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
       console.log("Вы классический зритель!");
     }
-    else if (numberOfFilms > 30) { console.log("Вы киноман!"); }
+    else if (personalMovieDB.count > 30) { console.log("Вы киноман!"); }
     else { console.log("Произошла ошибка!"); }
   },
+  
   showMyDB: function (hidden) {
     if (!hidden) {
       console.log(personalMovieDB);
@@ -70,17 +67,15 @@ const personalMovieDB = {
 
 };
 
-
+personalMovieDB.start();
+console.log(personalMovieDB.count);
 personalMovieDB.detectPersonalLevel();
-
 personalMovieDB.rememberMyFilms();
-
-
 personalMovieDB.showMyDB(personalMovieDB.privat);
-
 personalMovieDB.toggleVisibleMyDB();
-
 personalMovieDB.writeYourGenres();
+
+console.log(personalMovieDB.count);
 
 
 
