@@ -67,15 +67,15 @@ const personalMovieDB = {
 
 };
 
+
 personalMovieDB.start();
-console.log(personalMovieDB.count);
 personalMovieDB.detectPersonalLevel();
 personalMovieDB.rememberMyFilms();
 personalMovieDB.showMyDB(personalMovieDB.privat);
 personalMovieDB.toggleVisibleMyDB();
 personalMovieDB.writeYourGenres();
 
-console.log(personalMovieDB.count);
+
 
 
 

@@ -13,8 +13,6 @@ const personalMovieDB = {
   actors: {},
   genres: [],
   privat: false,
-
-
 };
 // let i = 0;
 // do{
