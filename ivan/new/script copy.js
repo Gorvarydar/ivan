@@ -15,11 +15,11 @@ const personalMovieDB = {
     for (i = 1; i < 4; i++) {
       personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером № ${i}`);
 
-      while (personalMovieDB.genres == "" || personalMovieDB.genres == null || personalMovieDB.genres == !isNaN) {
+      while (personalMovieDB.genres == "" || personalMovieDB.genres == null) {
         personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером № ${i}`);
       }
     };
-    personalMovieDB.genres.forEach(function (item, i, genres) {
+    personalMovieDB.genres.forEach((item, i, ) => {
       console.log(`любимый жанр № ${i + 1} это - ${item}`);
     })
   },

@@ -242,3 +242,129 @@ const oB = {
 const newOB = {...oB}; //* копирование объекта с помощью ...
 newOB.one = 888;
 console.log(newOB);
+
+
+let str = "camel";
+let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+// console.dir([1, 2, 3]);
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello:  function () {
+        console.log("Hello!")
+    }
+};
+
+const john = Object.create(soldier); //! создаём новый объект john , который буде прототипно наследоваться от soldier
+
+// const john = {
+//     health: 100
+// };
+
+// john.__proto__ = soldier; //* задание обекту свойств прототипа(Устаревшая форма записи!!!!!!!)
+// Object.setPrototypeOf(john, soldier);//! современная форма
+
+console.log(john);
+
+console.log(john.armor);
+
+john.sayHello();
+
+//! ДИНАМИЧЕСКАЯ ТИПИЗАЦИЯ
+//? TO STRING
+
+console.log(typeof(String(null)));
+console.log(typeof(String(5)));//* превращение числа в строку при помощи String()
+console.log((5));
+
+console.log(typeof(5 + ''));//* превращение числа в строку при помощи конткатенации
+
+//? TO NUMBER
+
+console.log(typeof(Number('5'))); //* редкая команда транс-ть в число Number()
+
+console.log(typeof(+"6")); //* сщвременная форма унарный +
+
+console.log(typeof(parseInt("15px", 10))); //* parseInt(знач, система исчисления(тут десятичная))
+
+//? TO BOOLEAN
+
+// 0, null, NaN, undefined -//* это всё false, остальное будет true
+
+let varik = null;
+if(varik) {console.log(true)}; //*не сработает
+
+varik = 3;
+ 
+if(varik) {console.log(true)};//* ок
+
+
+console.log(typeof(Boolean(5))); //* Boolean() устар
+
+console.log(typeof(!! 5)); //*современная форма
+
+//! ЗАДАЧКИ
+
+//2
+// console.log([] + false - null + true);  //* NaN
+// console.log(typeof(NaN));- number
+// console.log(typeof ({})); //*object
+// console.log(typeof ([]));//*object
+// console.log(typeof ([] + false));//*string
+// console.log(typeof ([] + false));//*number
+// console.log(typeof ('1'[0]));//* string
+
+
+//3
+// let y = 43; 
+// let x = y = 6;
+//  alert(x); 
+//  alert(y);
+
+//4
+// console.log(typeof ([] + 1 + 2));//! пустой массив [] в таких операция считается пустой строкой
+// console.log( [] + 1 + 2);//* 12 и это string
+
+//5
+// alert( "1"[0] ); //*  1
+console.log(typeof ("1"[0])); //*string
+
+//6
+console.log((2 && 1 && null && 0 && undefined)); //*object оператор && останавливается на значении false  
+                                                           //*опрераатор || останавливается на true
+//7
+// console.log(!!(a && b) == (a && b));
+console.log((1 || 55));//*если значения которые сравниваются при помощи || и && правдивы то
+console.log((1 && 55));//* || возвращает первое по порядку значение ,а && второе
+                                //! приритет && выше чем у ||    (таблица приритетов)
+//8
+// alert(null || 2 && 3 || 4);
+
+//9
+// a = [1, 2, 3];
+// b = a;
+// console.log(a == b);//*true
+
+const a = [1, 2, 3];
+const b = [1, 2, 3];
+console.log(a == b);//*false
+console.log(typeof("3"[0]));
+//9
+// alert("Infinity"); //*строка
+// alert(Infinity);//* число
+// alert(+"Infinity");//* снова строка
+alert("3"[0]); //*обращение к первому элементу строки "3" значит "3"
+alert("3"[1]);//* обращение к несуществующемк элементу значит undefined
+console.log(typeof(+"Infinity"));
+
+//10
+console.log("Ёжик" < "яблоко"); //*посимвольное сравнение ТАБЛИЦА UNICODE
+
+//11
+console.log( 0 || "" || 2 || undefined || true || falsе );//* || останавливается на true  в данном случае это 2
+
