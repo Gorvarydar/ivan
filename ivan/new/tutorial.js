@@ -424,3 +424,30 @@ const text = document.createTextNode('Довольно редко использ
 
 div.classList.add('black'); //* добавляем класс
 document.body.append(div);   //* берём тег body как родителя и внутрь него помещаем div (в самый конец)
+// wrapper.appendChild(div);  //*устаревшая форма
+// document.querySelector('.wrapper').append(div);//* как и выше помещаем в самый конец родителя(только уже wrapper) div
+                                                      //* но без объявления переменной - укороченный вариант(подходит если мы используем этот элемент единожды)
+                                                      
+// wrapper.append(div);   
+
+// wrapper.prepend(div);//* добавляет элемент в начале родителя
+// hearts[2].after(div);//* также добавляет эл-т можно точнее указать место
+// hearts[0].before(div);
+// hearts[0].insertBefore(div, herts[0]); //*устаревшая форма(какой элемент, пред каким)
+
+
+// circles[0].remove(); //* удаление элемента
+//wrapper.removeChild(herts[1]); //*устарев
+
+// hearts[1].replaceWith(circles[1]);
+hearts[0].replaceWith(circles[0]); //* заменить один элемент другим
+//wrapper.replaceChild(circles[0], hearts[0]); //*устарев
+
+//!редактирование элемента
+
+// div.innerHTML = "Hello World"; //*добавление текста
+div.innerHTML = "<h1>Hello World</h1>";//*добавление текста в HTML структуре
+
+// div.textContent = "hello"; //* только текст
+
+div.insertAdjacentHTML('', "<h2>Hello</h2>");
