@@ -368,3 +368,59 @@ console.log("Ёжик" < "яблоко"); //*посимвольное сравн
 //11
 console.log( 0 || "" || 2 || undefined || true || falsе );//* || останавливается на true  в данном случае это 2
 
+//! DOM
+
+'use strict';
+
+// const box = document.getElementById('box');//* передаёт сразу елемент ,с которым можно работать
+
+// console.log(box);
+
+// const btns = document.getElementsByTagName('button');//*передаёт псевдомассив(html-коллекцию) из которой ёще нужно доставать нужный элемент
+
+// console.log(btns); 
+
+// const circles = document.getElementsByClassName('circle');//*передаёт псевдомассив(html-коллекцию) из которой ёще нужно доставать нужный элемент
+
+// console.log(circles);
+
+// const hearts = document.querySelectorAll('.heart');//*передаёт псевдомассив(html-коллекцию) из которой ёще нужно доставать нужный элемент
+//                                                    //* обращение в (CSS- селлектор) поэтому через .    имеет метод forEach!!
+// console.log(hearts);
+
+// hearts.forEach(item => {
+//     console.log(item);
+// });
+
+// const oneHeart = document.querySelector('.heart');//* передаёт сразу елемент ,с которым можно работать
+//                                                   //*обращение в (CSS- селлектор)
+// console.log(oneHeart);
+
+const box = document.getElementById('box'),
+    btns = document.getElementsByTagName('button'),
+    circles = document.getElementsByClassName('circle'),
+    hearts = document.querySelectorAll('.heart'),
+    oneHeart = document.querySelector('.heart');
+
+    // box.style.backgroundColor = "green";//* изменение свойств запись в стиле camelCase
+    // box.style.width = "500px";
+
+box.style.cssText = 'background-color: green; widht: 500px'//* исзменение сразу нескольких свойств(!!записываютя в формате CSS!!)
+
+    btns[1].style.borderRadius = "80%";
+    btns[1].style.color = 'red';
+    
+    // for(let i = 0; i < hearts.length; i++) {
+    //     hearts[i].style.backgroundColor = 'yellow';//*  почти не используется (удобнее forEach)
+    // };
+
+hearts.forEach(item =>{
+    item.style.backgroundColor = 'yellow';
+});
+
+const div = document.createElement('div'); //* элемент есть только в js файле на странице он не отображается
+
+const text = document.createTextNode('Довольно редко используется');
+
+div.classList.add('black'); //* добавляем класс
+document.body.append(div);   //* берём тег body как родителя и внутрь него помещаем div (в самый конец)
