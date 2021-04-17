@@ -451,3 +451,6 @@ div.innerHTML = "<h1>Hello World</h1>";//*добавление текста в H
 // div.textContent = "hello"; //* только текст
 
 div.insertAdjacentHTML('', "<h2>Hello</h2>");
+
+
+//? разбор дз 30
