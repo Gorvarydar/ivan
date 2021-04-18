@@ -556,3 +556,39 @@ const delElem = (e) => {
 
 const btn = document.querySelector('button');
 btn.addEventListener('click', delElem, {once: true});
+
+//! НАВИГАЦИЯ ПО DOM-ДЕРЕВУ
+
+// console.log(document.body);  //*обращение ко всему блоку body
+// console.log(document.documentElement);//* обращение к HTML-документу
+
+console.log(document.body.childNodes);  //*обращение ко всем дочерним структурам(узлам) BODY (формируется псевдомассив)
+                                        //* не все элементы это узлы, например text(это скорее всего перенос строки) УЗЛЫ!=ЭЛЕМЕНТЫ
+                                              //!   УЗЛЫ!=ЭЛЕМЕНТЫ
+
+// console.log(document.body.firstChild); //* обращение к первому дочернему узлу родителя BODY
+// console.log(document.body.lastChild);  //* к последнему
+// console.log(document.body.lastElementChild);//* к последнему дочернему элементу
+
+// // console.log(document.querySelector("#current").parentNode);  //*обращение к дочернему узлу с ID  current для получения родительского узла
+// // console.log(document.querySelector("#current").parentNode.parentNode); //*  -||- для получения родителя родителя
+// console.log(document.querySelector("#current").parentElement);  //*обращение к дочернему узлу с ID  current для получения родительского элемента
+
+
+
+// //?  data- АТРИБУТЫ
+
+// console.log(document.querySelector('[data-current="3"]').nextSibling); //*получение узла следуещего за data- атрибутом current
+// console.log(document.querySelector('[data-current="3"]').previousSibling) //*             предыдущего data- атрибуту current
+
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling); //* получение уже элементов
+// console.log(document.querySelector('[data-current="3"]').previousElementSibling);
+
+for(let node of document.body.childNodes) {  //* при помощи метода for of мы перебираем
+  if( node.nodeName =='#text'){              //* все дочерние УЗЛЫ и выводим исключая текстовые(text)
+    continue                                 //* continue (исключает, пропускает),а  break (просто останавливает)
+  }
+  console.log(node);
+};
+
+
