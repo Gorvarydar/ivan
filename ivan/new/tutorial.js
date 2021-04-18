@@ -454,3 +454,105 @@ div.insertAdjacentHTML('', "<h2>Hello</h2>");
 
 
 //? разбор дз 30
+
+//!   СОБЫТИЯ И ОБРАБОТЧИКИ 
+//? ЗАДАНИЕ 
+
+// const btn = document.querySelector('button'),
+//       overlay = document.querySelector('.overlay');
+
+// btn.onclick = () => {   //*задание события чепез свойство DOM onclick (приставка on перед любым событием)
+//     alert('Click');
+// };                          //* непоппулярная форма 
+
+// btn.onclick = function() {  //* нельзя задать на одно событие больше одного действия(второе заменит первое)
+//     alert('Second Click');     //*нельзя удалить обработчик в нужный момент
+// };
+
+// btn.addEventListener('click', () => {
+//     alert("Click");                          //* два обработчика на одно событие(клик левой к.мыши)
+// });
+// btn.addEventListener('click', () => {
+//     alert("Second Click"); 
+// });
+
+
+// btn.addEventListener('wheel', () => { 
+//     prompt("How dod you do?");                  //* другое событие на этом же элементе(прокрутка колеса)
+// });
+
+
+// btn.addEventListener('click', (e) => {        //* в обработчике 1-й арг 'wheel' -это событие 
+//     console.log(e);                            //*,2-й callback ф-я в котором (1-й элемент это объект события(у него есть свойства и методы), 
+//     // e.target.remove()                            //*а второй задаваемые данные по необходимости)
+// });                                            //* 
+
+//?  УДАЛЕНИЕ ОБЪЕКТА
+
+// const delElem = (e)=> {        //* объявлем ф-ю для удаление объекта (через его  метод )
+//     e.target.remove();
+// };
+
+// btn.addEventListener('click', delElem);        //* задание функции (!!не вызов!!) без скобок
+
+//? УДАЛЕНИЕ ОБРАБОТЧИКА
+
+// let i = 0;
+// const delElement = (e) => {
+//     console.log(e.target);          //*создание функции,которая удаляет обработчик после одного выполнения
+//     i++;
+//     if(i == 1) {
+//         btn.removeEventListener('click', delElement);
+//     }  
+// };
+
+// btn.addEventListener('click', delElement);
+
+//? ВСПЛЫТИЕ СОБЫТИЙ
+
+// const elem = (e) => {
+//     console.log(e.target);
+//     console.log(e.type);
+// };
+// btn.addEventListener('click', elem);
+// overlay.addEventListener('click', elem);
+
+
+// const deleteElement = (e) => {
+//     console.log(e.target);      //*можно писать ф-ию 2-м аргументом в обработчике или вынести отдельно как здесь
+//     // console.log(e.currentTarget);       
+//     console.log(e.type);
+// };
+
+
+
+// btn.addEventListener('click', deleteElement);       //*всплытие событий,срабатывание  обработчика на вложенной и родительской структуре
+// overlay.addEventListener('click', deleteElement);   //*сначала срабатывает на самой вложенной структуре и по иерархии вверх
+
+// //? ОТМЕНА СТАНДАРТНОГО ПОВЕДЕНИЯ БРАУЗЕРА
+
+// const link =document.querySelector('a');
+ 
+//     link.addEventListener('click', () => {
+//     event.preventDefault();                              //* отменяем стандартное поведение ф-ии(здесь переход по ссылке) !!! 
+//                                                        //* это мы делаем в самом начале ф-ии
+// console.log(event.target);                             //* и уже дальше можем выполнять нужные нам функции
+// });
+
+// const delElem = (e) => {
+// console.log(e.target);                                   //* создание ф-ии кот-я удаляет элемент
+// e.target.remove();
+// }
+// const btns = document.querySelectorAll('button');    //*назначение для каждого элемента псевдомассива
+// btns.forEach(e => {                                  //* при помощи forEach обработчика события
+//     e.addEventListener('click',delElem);
+// });
+
+//?   ОПЦИИ СОБЫТИЯ
+
+const delElem = (e) => {
+    console.log(e.target);
+};
+
+const btn = document.querySelector('button');
+btn.addEventListener('click', delElem, {once: true});
