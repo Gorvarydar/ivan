@@ -1,4 +1,4 @@
-m = {
+const m = {
     op: [
         '1',
         '2',
@@ -8,6 +8,7 @@ m = {
 };
 
 console.log(m);
+const b = 5;
 
-m.op.push('jsjdksd');
+m.op.push(b);
 console.log(m);
