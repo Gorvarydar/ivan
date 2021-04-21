@@ -602,3 +602,43 @@ document.addEventListener('DOMContentLoaded', () => {       //*ЧТОБЫ ЭТО
 window.addEventListener('DOMContentLoaded', () => {
 //*  аналогичный вариант
 });
+
+
+//! СОБЫТИЯ НА МОБИЛЬНЫХ УСТРОЙСТВАХ
+
+touchstart  //* касаение  сенсора
+touchmove //* движение при при касании
+touchend //* отрывание альца (конец касания)
+touchenter //*  когда при ведении пальцем мы натыкаемся к-нибудь элемент
+touchleave//* продолжаем вести по экрану и покидаем область touchenter
+touchcancel //* касание выходит за пределы браузера
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    const box = document.querySelector('.box');
+
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        console.log('Touch start');
+                    //? ДОП СВОЙСТВА ОБЪЕКТА СОБЫТИЯ ПРИ РАБОТЕ С СЕНСОРНЫМИ УСТРОЙСТВАМИ
+
+        console.log(e.touches);  //* количество пальцев которые взаимодей ствую с экраном
+        console.log(e.targetTouches); //* кол-во пальцев которые взаимодействуют именно с эти объектом
+        console.log(e.changedTouches); //*  список пальцев которые участвуют в текущем событии
+        console.log(e.targetTouches[0].pageX); //*обращаюсь к первому пальцу и узнаю его координаты на странице
+    });
+    
+    
+});
+
+//! динамические скрипты defer и async
+/* <script defer src="simple.js"></script> */ //*  defer сообщает браузеру что он должен продолжать обрабатывать  
+                                         //* страницу в фоновом режиме(он никогда не блокирует страницу)
+                                         //*  скрипт с defer выполняется только когда DOM дерево полностью готово
+
+
+
+  <script async src="simple.js"></script> //* при async страница не ждёт асихронных скриптов (содержимое обрабат-ся и отоб-ся)
+                                           //* когда скрипт async загружен сразу запускается?никого не ждёт
+                                            //* и другие скрипты не ждут async
+                                            //* важен для независимых скриптов

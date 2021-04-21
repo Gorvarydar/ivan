@@ -1,14 +1,8 @@
-const m = {
-    op: [
-        '1',
-        '2',
-        '3',
-        '4'
-    ]
-};
+"use string"
 
-console.log(m);
-const b = 5;
+const p = document.querySelectorAll('p');
+console.log(p);
 
-m.op.push(b);
-console.log(m);
+const script = document.createElemen('script');
+script.src = "new/test.js";
+document.body.append(script);
