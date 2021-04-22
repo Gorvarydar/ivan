@@ -1,0 +1,19 @@
+button {
+    border-radius: 3px;
+    padding: 32px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 43px;
+    margin: 5px 2px;
+    cursor: pointer;
+    color:red;
+    background:wheat;
+  };
+
+  button.red {
+      background: red;
+  };
+
+  button.blue {
+      background-color:chocolate
+  }
