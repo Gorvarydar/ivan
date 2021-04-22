@@ -7,13 +7,41 @@ button {
     margin: 5px 2px;
     cursor: pointer;
     color:red;
-    background:wheat;
+    background:rgb(53, 8, 49);
+  };
+button.red {
+    border-radius: 3px;
+    padding: 32px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 43px;
+    margin: 5px 2px;
+    cursor: pointer;
+    color:rgb(245, 7, 7);
+    background:rgb(3, 61, 248);
+};
+button {
+    border-radius: 3px;
+    padding: 32px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 43px;
+    margin: 5px 2px;
+    cursor: pointer;
+    color:red;
+    background:rgb(53, 8, 49);
   };
 
-  button.red {
-      background: red;
-  };
+  
 
   button.blue {
-      background-color:chocolate
+    border-radius: 3px;
+    padding: 32px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 43px;
+    margin: 5px 2px;
+    cursor: pointer;
+    color:red;
+    background:rgb(26, 247, 6);
   }
