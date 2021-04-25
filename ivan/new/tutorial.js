@@ -699,3 +699,42 @@ const btn = document.createElement('button');
        btn.classList.add('green') ;
        wrapper.append(btn);
 
+       //! ДЕЛЕГИРОВАНИЕ СОБЫТИЙ
+
+       const tabs = document.querySelectorAll('.tabheader__item'),   //*псевдомассив элементов
+       tabsParent = document.querySelector('.tabheader__items');    //* родительский класс
+
+
+       tabsParent.addEventListener('click', (event) => {    //* задаём событие не конкретному элементу, а родительскому классу
+        const target = event.target;                        //*т.е. это событие будет выполнятся для каждого лемента 
+
+        if(target && target.classList.contains('tabheader__item')) {
+            tabs.forEach((item, i) => {         //*  1-й аргумент элемент tabs , 2-й номер этого элемента по порядку
+                if (target == item) {          //* сравнение элемента в который мы кликнули с тем который мы перебираем
+                    hideTabContent();
+                    showTabContent(i);  
+                }
+            })
+        };
+    });
+
+//!   СКРИПТЫ И ВРЕМЯ ИХ ВЫПОЛНЕНИЯ
+
+const timerId = setTimeout(function()  {  //* вариант асинхронного кода, команда выполнится через указзаный промежуток времени    console.log('hello');
+    console.log('hello')                  //* фун-ия setTimeout 1-й аргумент - объявление функции(которая будет вып-ся), 2-й интервал в милисекундах 1с=1000мс
+}, 5000);
+
+const timer = setTimeout(function(text) {  //* 3-й аргумент (после времени ) может задаваться аргументом  функции в данном случае text
+    console.log(text);
+}, 2000, 'hello');
+
+
+function logger () {                  //* можно и так ,НО ф-ию мы не вызываем logger(), а передаём logger!
+    console.log('hello');
+};
+const timer = setTimeout(logger, 2000);
+
+setTimeout(function()  { 
+    console.log('hello')}, 2000);              //* работает и так , но лучше фиксировать в переменную ,чтобы можно было остановить 
+
+    clearInterval(timer)      //* останавливает выполнение кода заданного через setTimeout
