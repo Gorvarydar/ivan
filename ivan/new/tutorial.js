@@ -771,10 +771,10 @@ console.log(now);
 
 let start = new Date();       //*пример исп-я для получения времени выполнения опр-го скрипта
 
-for(i=0 ; i < 100000; i++) {
-    let some = i**3;
-    console.log(some);
-};
+// for(i=0 ; i < 100000; i++) {
+//     let some = i**3; //*i возводится в степень 3
+//     console.log(some);
+// };
  let end = new Date();
 
  alert(`Цикл отработал за ${end - start} миллисекунд`);
