@@ -670,7 +670,7 @@ btns[0].addEventListener('click', () => {      //* разное исполнен
     btns[1].classList.toggle('red');
 });
 
-
+//!  ДЕЛЕГИРОВАНИЕ СОБЫТИЙ назначение событий для потомков родителя подходящих под опр-е условия.
 wrapper.addEventListener('click', (event) => {
     // console.dir(event.target); //* выводит тег класс имя
     // console.log(event.target);//* выводит как объект со всеми методами и свойствами
@@ -684,9 +684,6 @@ wrapper.addEventListener('click', (event) => {
         
     }                                                     
 });
-
-
-
 
 // btns.forEach(btn => {                      //* работает тоько для тех методов которые есть на момент объявления
 //     btn.addEventListener('click', () => {
@@ -745,4 +742,39 @@ setTimeout(function() {
     let id = setTimeout(function log() {  //*вызов рекурсивного setTimeout, он всегда будет выполнять заданный интервал
         console.log('hello');
       id = setTimeout(log, 500);
-    }, 500);                
+    }, 500);          
+    
+    
+    //! РАБОТА С ДАТАМИ
+
+// const now = new Date("1989-04-27"); //*(тут задаём дату) все даты хранятся в милисекундах , отсчёт ведётся с 1970(если нужна дата до исп. отриц. знач)
+//   new Date.parse("1989-04-27"); //*(и тут тоже задаём дату ) разные способы
+const now = new Date();  
+console.log(now);
+
+  // get //* узнать, получить
+// console.log(now.getFullYear()); 
+// console.log(now.getMonth()); //* месяца считаются с  0
+// console.log(now.getHours());//* зависит от часового пояса
+// console.log(now.getUTCHours()); //*UTC всемирное координировааное время 
+// console.log(now.getMinutes());
+// console.log(now.getDate());
+// console.log(now.getDay());
+
+// console.log(now.getTimezoneOffset()); //* разница между текущим часовым и UTC  в минутах
+// console.log(now.getTime()); //* количество милисек. с точки отсчёта (1970 г)
+// console.log(now.getDate(1619494580741));
+
+// set //* задать ,изменить
+// console.log(now.setHours(18));
+// console.log(now); //* в консоли разработчика время чаще всего отображается в формате UTC
+
+let start = new Date();       //*пример исп-я для получения времени выполнения опр-го скрипта
+
+for(i=0 ; i < 100000; i++) {
+    let some = i**3;
+    console.log(some);
+};
+ let end = new Date();
+
+ alert(`Цикл отработал за ${end - start} миллисекунд`);
