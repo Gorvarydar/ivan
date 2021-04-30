@@ -1,47 +1,17 @@
-button {
-    border-radius: 3px;
-    padding: 32px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 43px;
-    margin: 5px 2px;
-    cursor: pointer;
-    color:red;
-    background:rgb(53, 8, 49);
-  };
-button.red {
-    border-radius: 3px;
-    padding: 32px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 43px;
-    margin: 5px 2px;
-    cursor: pointer;
-    color:rgb(245, 7, 7);
-    background:rgb(3, 61, 248);
-};
-button {
-    border-radius: 3px;
-    padding: 32px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 43px;
-    margin: 5px 2px;
-    cursor: pointer;
-    color:red;
-    background:rgb(53, 8, 49);
-  };
+.box {
+  box-sizing: border-box;
+  width: 400px;
+  height: 350px;
+  overflow: scroll;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 10px;
+}
 
-  
-
-  button.blue {
-    border-radius: 3px;
-    padding: 32px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 43px;
-    margin: 5px 2px;
-    cursor: pointer;
-    color:red;
-    background:rgb(26, 247, 6);
-  }
+button {
+  width: 100px;
+  height: 40px;
+  display:block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
