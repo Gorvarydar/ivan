@@ -15,3 +15,28 @@ button {
   margin: 0 auto;
   margin-top: 20px;
 }
+
+.btn_dark{
+  width: 100px;
+  height: 40px;
+  display:block;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: brown;
+}
+
+.btn_min{
+  width: 100px;
+  height: 40px;
+  display:block;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: goldenrod;
+}
+
+.modal {
+  display:block;
+  visibility: hidden;
+  margin: 0 ,auto;
+  
+}
