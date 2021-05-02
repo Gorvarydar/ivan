@@ -40,3 +40,12 @@ button {
   margin: 0 ,auto;
   
 }
+
+.btn {
+  width: 100px;
+  height: 40px;
+  display:block;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: white;
+}

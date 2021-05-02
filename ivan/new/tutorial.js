@@ -843,3 +843,102 @@ ivan.exit();
 
 //! в ES6  появились классы(синтасическй сахар)
 
+
+//!    КОНТЕКСТ ВЫЗОВА THIS
+
+'use strict' //* использование строгого режима
+
+function showThis(a, b) {   //*без использывания строгого режима ф-я будет ссылаться на глобальный объект(window)
+   console.log(this);   //* если есть строгий р. то undefined
+   function sum() {
+       console.log(this);
+      //  return this.a + this.b;  
+      return a + b ;   //* используем замыкания (хоть переменные и неопределены в sum()),ф-я не находит их внутри себя  и обращается к родительской ф-ии
+   }
+   console.log(sum());
+}
+showThis(4, 5);
+
+const obj = {
+   a: 20,
+   b: 15,
+   sum: function() {
+      console.log(this);//* вызывая контекст получаем весь объект целиком
+   }                   //* если же мы поместим в метод ф-ию ,которая ссылается на контекст  то будеt undefined
+};
+obj.sum();  //* контекст у методов объектов - сам объект!
+
+function User(name, id) {
+   this.name = name;
+   this.id = id;
+   this.human = true;
+   this.hello = function() {
+      console.log('Hello' + this.name);
+   }
+}
+let ivan = new User('Ivan', 25);
+
+ivan.hello();
+//! this в конструкторах и классах - это новый экземпляр объекта
+
+function sayName (surname) {
+   console.log(this);
+   console.log(this.name + surname);
+}
+
+const user = {
+   name: "Jhon"
+};
+//*call и apply делают одно и тоже(устанавлвают заданный контекст) ,отличия начинаются в синаксисе при появлении доп.аргементов ф-ии (прим.surname)
+sayName.call(user, 'Smith');
+sayName.apply(user, ['Smith']);
+
+
+function count(num) {
+   return this*num;
+}
+const double = count.bind(2); //* создаёт новую ф-ию (видоизменяя контекст count)
+console.log(double(3));
+console.log(double(22));
+//* bind создаёт новую ф-ию
+ 
+//?  1) Обычная ф-ий : this = window, но если use strict - undefined
+//?  2) Контекст у методов объекта - сам объект
+//?  3) this  в конструкторах и классах - это новый экземпляр объекта
+//?  4) Ручная привязка контекста(this): call, apply, bind.
+
+
+const btn = document.querySelector('.btn');
+ 
+btn.addEventListener('click', function() {  //* если использывать => то контекст(this) теряется
+   this.style.backgroundColor = "red";                 //* контекст вызова - сам элемент на котором произошло событие(кроме => ф-ий)
+});
+   btn.addEventListener('click', (e => {
+      e.target.style.backgroundColor = 'red'; //*одно и тоже действие(предпочтительная форма к тому же можно исп-ть =>)
+   }))
+   
+
+
+//?  У СТРЕЛОЧНОЙ Ф-ИИ НЕТ СВОЕГО КОНТЕКСТА ВЫЗОВА, ОНА БЕРЁТ ЕГО У СВОЕГО РОДИТЕЛЯ
+
+const obj = {
+   num: 5,
+   sayNumber: function() {
+      const say = () => { //* стрелочная ф-я берёт контекст родителя в данном случае метод sayNumber
+         console.log(this.num); //* а контекст метода объекта всегда сам объект
+      }
+      say();
+   }
+};
+
+obj.sayNumber();
+
+//*особенности стрелочных ф-й
+const double = (a) => {
+   return a * 2;
+};
+//*будет работать правильно и так
+const double = (a, b ) => a * 2;//*действие должно помещаться в одну строчку
+const double = a => a * 2; //* синтаксис когда у ф-ии один аргумент
+
+
