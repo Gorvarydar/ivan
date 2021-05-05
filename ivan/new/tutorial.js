@@ -938,7 +938,7 @@ const double = (a) => {
    return a * 2;
 };
 //*будет работать правильно и так
-const double = (a, b ) => a * 2;//*действие должно помещаться в одну строчку
+const double = (a ) => a * 2;//*действие должно помещаться в одну строчку
 const double = a => a * 2; //* синтаксис когда у ф-ии один аргумент
 
 
@@ -949,14 +949,14 @@ const double = a => a * 2; //* синтаксис когда у ф-ии один
  class Rectangle { //* название классов пишется с большой буквы
     constructor (height, widht) { //* создаём новый объект
        this.height = height ;//*обращаемся к экземпляру нового созданного объекта
-       this.widht = widht; //* иговорим что он будет свойствами, которые мы берём из аргументов ф-ии
+       this.widht = widht; //* иговорим что он будет с свойствами, которые мы берём из аргументов ф-ии
     }
     calcArea() { //* создаём метод объекта вычисляющий площадь
        return this.height * this.widht
     }
  }
 
-class ColorRectangleWithText extends Rectangle {
+class ColorRectangleWithText extends Rectangle {//* класс ColorRectangleWithText наследует (extends) от класса Rectangle
 constructor(height, widht, text, bgColor) {
  super(height, widht);//*вызывает суперконструктор родителя(т.е. вызывает контекст родителя)!!всегда пишется в начале конструктора
  this.text = text;
@@ -977,3 +977,22 @@ console.log(cort.calcArea()); //*  метод ,который унаследов
  // console.log(square.calcArea());
  // console.log(long.calcArea());
 
+
+ //!оператор rest
+//* если ... в конце списка аргументов - это rest(собирает в ост.арг в массив), если ...  в вызове ф-ии или где-то ещё то spread(оператор расширения-он извдекает элементы из массива)
+const log = function (a, b, ...rest) { //* ...rest  собирает остаточные параметры и помещает их в массив
+    console.log(a, b, rest);
+ }
+  log (4, 7, 5, 9, 0, 7, 1);
+ 
+  //!  ПАРМЕТРЫ ПО УМОЛЧАНИЮ
+ 
+ function calcOrDouble(number, basis = 2) {  //* сейчас аргумент по умолчанию задаётся в самой ф-ии
+    // basis = basis || 2; //* раньше использывали такой синт-с чтобы задать синтаксис если вдруг он неопределен
+    console.log(number * basis);
+ }
+ calcOrDouble(3, 5);
+
+ //!  JSON (набор пар ключ-значение)
+ 
+ 

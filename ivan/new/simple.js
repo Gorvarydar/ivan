@@ -31,65 +31,43 @@
 // // // window.scrollBy(0, 400); //* проскролить относительно  положения пользователя
 // // // window.scrollTo(0, 400); //* проскролить относительно всей страницы
 
+// class ColorCircle {
+//     constructor (radius, color) {
+//         this.radius = radius;
+//         this.color = color;
+//     }
+// colorRadius () {
+//     if(this.radius > 10 ) {console.log('red circle')} else {
+//         console.log('green circle');
+//     }
+// }
+// }
+
+// class ColorCircleWithText extends ColorCircle {
+//     constructor(radius, color, text) {
+//         super(radius, color);
+//         this.text = text;
+//     }
+//     showText() {
+//         console.log('Circle');
+//     }
+// }
+
+// const  got = new ColorCircleWithText  (12, 'purpure', 'круг');
+
+// // console.log(got);
+// console.log(got.colorRadius(5));
+'use string'
+const persone = {
+    name: 'Alex',
+    tel: '+9794551554'
+}; 
+//* все  браузеры имеют встроенные объекты JSON , у которых есть свойства и методы (JSON.stringufy - превращает объекты JS в формат JSON для отправки на сервер)  
+//* в JSON все сущности должны быть записаны  ""- формат необходимый для протоколов данных на сервере
+console.log(JSON.stringify(persone));
+//* JSON.parse(преобразует код с сервера для работы в JS)
+
+console.log(JSON.parse(JSON.stringify(persone)));
 
 
-// const modalOpen = document.querySelector('[data-modal]'),
-//       modalClose = document.querySelector('[data-close]'),
-//       modal = document.querySelector('.modal');
-
-//       modalOpen.addEventListener('click', () => {
-//          modal.style.visibility = 'visible';
-
-// //       });
-
-//       modalClose.addEventListener('click', () => {
-//          modal.style.visibility = 'hidden';
-//       })
-
-      
-// // const btn = document.querySelector('.btn');
-// // btn.addEventListener('click', (e) => {
-// // e.target.style.backgroundColor = 'green';
-// // });
-
-// const but = document.querySelector('button');
-// but.addEventListener('click', function(){
-//    this.style.backgroundColor = 'red';
-// })
-// const btn = document.querySelector('.but');
-// btn.addEventListener('click', function() {  //* если использывать => то контекст(this) теряется
-
-      //!КЛАССЫ (ES6) КРАСИВЫЕ ОБЁРТКИ ФУНКЦИЙ КОНСТРУКТОРОВ/СИНТАКСИЧЕСКИЙ САХАР
-      
-      'use strict'
-   
-      class Rectangle { //* название классов пишется с большой буквы
-         constructor (height, widht) { //* создаём новый объект
-            this.height = height ;//*обращаемся к экземпляру нового созданного объекта
-            this.widht = widht; //* иговорим что он будет свойствами, которые мы берём из аргументов ф-ии
-         }
-         calcArea() { //* создаём метод объекта вычисляющий площадь
-            return this.height * this.widht
-         }
-      }
-
-class ColorRectangleWithText extends Rectangle {
-   constructor(height, widht, text, bgColor) {
-      super(height, widht);//*вызывает суперконструктор родителя(т.е. вызывает контекст родителя)!!всегда пишется в начале конструктора
-      this.text = text;
-      this.bgColor = bgColor ;
-   }
-   showMyProps () {
-      console.log(`текст: ${this.text}, цвет: ${this.bgColor}`)  //* обращение к свойствам только через контекст
-   }
-}
-
-const cort = new ColorRectangleWithText(20, 50, 'HelloWorld', 'red');
-cort.showMyProps();
-console.log(cort.calcArea()); //*  метод ,который унаследован о  родителя
-
-
-      // const square = new Rectangle(10, 10);  //* помещаем в переменную новый объект класса Rectanle, у которого есть 2 св-ва и 1 метод
-      //  const long = new Rectangle(20, 100);
-      // console.log(square.calcArea());
-      // console.log(long.calcArea());
+ 
