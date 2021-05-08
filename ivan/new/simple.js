@@ -60,14 +60,26 @@
 'use string'
 const persone = {
     name: 'Alex',
-    tel: '+9794551554'
+    tel: '+9794551554',
+        parents: {
+            mom: 'Olga',
+            dad: 'Tolya'
+        }
 }; 
 //* все  браузеры имеют встроенные объекты JSON , у которых есть свойства и методы (JSON.stringufy - превращает объекты JS в формат JSON для отправки на сервер)  
 //* в JSON все сущности должны быть записаны  ""- формат необходимый для протоколов данных на сервере
-console.log(JSON.stringify(persone));
+// console.log(JSON.stringify(persone));
 //* JSON.parse(преобразует код с сервера для работы в JS)
+//* маленький вес и простота чтения(раньше был распространён XML)
+const toClone = persone;
 
-console.log(JSON.parse(JSON.stringify(persone)));
+const clone = JSON.parse(JSON.stringify(persone)); //*глубокое клонирование
+clone.parents.mom = 'ann';
+// clone.parents.dad = 'fred';
+console.log(persone);
+console.log(clone);
+
+
 
 
  
