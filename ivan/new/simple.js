@@ -16,5 +16,21 @@ const usd = document.querySelector('.usd'),
             request.open('GET','new/current.json');
             request.setRequestHeader('Content-type','application/json; charset=utf-8'); //* http заголовки уточняем какой именно будет запрос
             request.send()
-        })
+            request.addEventListener('readystatechange', () => {
+                if (request.readyState === 4 && request.status === 200) {
+                    console.log(request.response); 
+                }
+            });
 
+            //? свойства запроса
+            // status//* состояние объекта КОД(каждый код что-то значит например 404 - клиентская ошибка)
+            // statusText //* текстовое описание ответа от сервера
+            // response //* ответ от сервера(то что мы используем на клиетне)
+            // readystate //* текущее состояние запроса( от 0 до 4)
+
+            //*события запроса
+        //    loadstart
+        //    progress
+        //    abort
+        //    loadend
+      })
